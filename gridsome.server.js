@@ -3,7 +3,7 @@ const axios = require("axios");
 module.exports = function(api) {
   api.loadSource(async actions => {
     const { data } = await axios.get(
-      "https://health-db-9afe2.firebaseapp.com/api/v1/clients/"
+      "https://health-db-9afe2.firebaseapp.com/api/v1/all-clients/"
     );
 
     const collection = actions.addCollection({
