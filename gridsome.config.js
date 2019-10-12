@@ -6,19 +6,5 @@
 
 module.exports = {
   siteName: "health-coaching",
-  plugins: [
-    {
-      use: "@gridsome/source-wordpress",
-      options: {
-        baseUrl: process.env.WORDPRESS_URL, // required
-        apiBase: "wp-json",
-        typeName: "WordPress",
-        perPage: 100,
-        concurrent: 10
-      }
-    }
-  ],
-  templates: {
-    WordPressPost: "/:year/:month/:day/:slug"
-  }
+  plugins: []
 };
