@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "label": "weight",
+        "name": "daily-weight",
+        "type": "number",
+        "step": 0.1,
+        "min": 2,
+        "max": 5
+    },
+    {
+        "id": 2,
+        "label": "carbs",
+        "name": "daily-carbs",
+        "type": "number",
+        "step": 1,
+        "min": 2,
+        "max": 3
+    },
+    {
+        "id": 3,
+        "label": "protein",
+        "name": "daily-protein",
+        "type": "number",
+        "step": 1,
+        "min": 2,
+        "max": 3
+    },
+    {
+        "id": 4,
+        "label": "fat",
+        "name": "daily-fat",
+        "type": "number",
+        "step": 1,
+        "min": 2,
+        "max": 3
+    },
+    {
+        "id": 5,
+        "label": "fiber",
+        "name": "daily-fiber",
+        "type": "number",
+        "step": 1,
+        "min": 1,
+        "max": 2
+    },
+    {
+        "id": 6,
+        "label": "exercise",
+        "name": "daily-exercise",
+        "type": "text",
+        "step": null,
+        "min": null,
+        "max": null
+    },
+    {
+        "id": 7,
+        "label": "notes",
+        "name": "daily-notes",
+        "type": "text",
+        "step": null,
+        "min": null,
+        "max": null
+    }
+]
