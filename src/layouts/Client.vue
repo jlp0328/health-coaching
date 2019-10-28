@@ -1,15 +1,22 @@
 <template>
-  <div>
-    <header>
-      <h1>Welcome!</h1>
-    </header>
+  <div class="main">
+    <header></header>
+    <Navigation />
     <slot />
   </div>
 </template>
 
 <script>
-export default {};
+import Navigation from "../components/Navigation";
+export default {
+  components: {
+    Navigation
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+.main {
+  display: flex;
+}
 </style>

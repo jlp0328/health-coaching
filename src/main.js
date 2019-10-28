@@ -1,5 +1,5 @@
-const firebase = require("firebase/app");
-const firebaseui = require("firebaseui");
+const firebase = require('firebase/app');
+const firebaseui = require('firebaseui');
 
 const config = {
   apiKey: process.env.GRIDSOME_API_KEY,
@@ -12,11 +12,26 @@ const config = {
 
 firebase.initializeApp(config);
 
-import DefaultLayout from "~/layouts/Default.vue";
-import ClientLayout from "~/layouts/Client.vue";
+import DefaultLayout from '~/layouts/Default.vue';
+import ClientLayout from '~/layouts/Client.vue';
+import 'es6-promise/auto';
+import Vuex from 'vuex';
 
-export default function(Vue, { router, head, isClient }) {
+export default function(Vue, { router, head, isClient, appOptions }) {
   // Set default layout as a global component
-  Vue.component("Layout", DefaultLayout);
-  Vue.component("ClientLayout", ClientLayout);
+  Vue.component('Layout', DefaultLayout);
+  Vue.component('ClientLayout', ClientLayout);
+
+  Vue.use(Vuex);
+
+  appOptions.store = new Vuex.Store({
+    state: {
+      user: {
+        id: 'uN1o7E21taQVZwieGmYl',
+        firstName: 'Jamie',
+        lastName: 'Pittman'
+      }
+    },
+    mutations: {}
+  });
 }

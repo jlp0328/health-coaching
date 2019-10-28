@@ -8,12 +8,14 @@
   },
   "dependencies": {
     "@gridsome/source-wordpress": "^0.4.2",
+    "es6-promise": "^4.2.8",
     "firebase": "^7.2.0",
     "firebaseui": "^4.2.0",
     "gridsome": "^0.7.0",
     "gridsome-source-firestore": "^1.1.1",
     "gridsome-source-mysql": "^1.5.3",
-    "vue-mq": "^1.0.1"
+    "vue-mq": "^1.0.1",
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "eslint": "^6.2.0",

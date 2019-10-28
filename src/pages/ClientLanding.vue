@@ -1,24 +1,21 @@
 <template>
-  <div class="client-landing">
-    <Navigation />
-    <div class="main">
-      <h1>Welcome, Jamie!</h1>
+  <Client-Layout>
+    <div class="client-landing">
+      <h1>Welcome, {{this.$store.state.user.firstName}}!</h1>
       <ClientDashboard />
       <ClientDailyUpdates />
     </div>
-  </div>
+  </Client-Layout>
 </template>
 
 <script>
 import ClientDailyUpdates from "../components/ClientDailyUpdates";
 import ClientDashboard from "../components/ClientDashboard";
-import Navigation from "../components/Navigation";
 
 export default {
   components: {
     ClientDailyUpdates,
-    ClientDashboard,
-    Navigation
+    ClientDashboard
   },
   data() {
     return {
@@ -69,5 +66,6 @@ h1 {
 }
 .client-landing {
   display: flex;
+  flex-direction: column;
 }
 </style>

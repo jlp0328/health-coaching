@@ -1,69 +1,61 @@
 <template>
-  <div>
-    <h2>Good morning!</h2>
-    <div id="weight">
-      <label for="daily-weight">What is your weight today?</label>
-      <input
-        v-model="weight"
-        @keydown="weightValidation"
-        type="number"
-        step="0.1"
-        minlength="2"
-        maxlength="5"
-        name="daily-weight"
-        id="daily-weight"
-      />
-      <button @click="submitWeight">Submit</button>
+  <ClientLayout>
+    <div class="weight-exercise-container">
+      <h2>Weight & Exercise</h2>
+      <div class="current-week">
+        <p>
+          Current Week:
+          <span>10/28/19 - 11/3/19</span>
+        </p>
+
+        <p>
+          Current Weekly Weight Average:
+          <span>143.28</span>
+        </p>
+      </div>
+      <WeightExerciseLog />
     </div>
-  </div>
+  </ClientLayout>
 </template>
 
 <script>
 const axios = require("axios");
+import WeightExerciseLog from "../components/WeightExerciseLog";
 
 export default {
+  components: {
+    WeightExerciseLog
+  },
   data() {
     return {
-      weight: 0,
-      user: "uN1o7E21taQVZwieGmYl"
+      user: this.$store.state.user.id
     };
   },
   methods: {
-    weightValidation(event) {
-      //   if (event.keyCode == 46 || event.keyCode == 8) {
-      //     return;
-      //   }
-      //   if (event.keyCode < 48 || event.keyCode > 57) {
-      //     event.preventDefault();
-      //   }
-    },
-    submitWeight() {
-      let data = {
-        client: this.user,
-        date: new Date(),
-        weight: this.weight
-      };
-      console.log(data);
+    async getDailyWeightRecords() {
+      let weightLog = await axios.get(
+        `https://health-db-9afe2.firebaseapp.com/api/v1/weight/weight-log/${this.user}`
+      );
 
-      axios
-        .post(
-          "https://health-db-9afe2.firebaseapp.com/api/v1/weight/weight-log",
-          data
-        )
-        .then(response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      console.log(weightLog);
     }
   },
   created() {
-    this.weight = "";
-    console.log(this.$auth)
+    this.getDailyWeightRecords();
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.weight-exercise-container {
+  display: flex;
+  flex-direction: column;
+  padding: $container-padding;
+  margin: $container-margin;
+}
+
+.current-week {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 </style>
