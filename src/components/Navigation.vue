@@ -18,7 +18,7 @@ export default {};
 
 <style lang="scss" scoped>
 .main {
-  height: 100vh;
+  height: 100%;
   width: 20vw;
   background-color: grey;
   display: flex;
